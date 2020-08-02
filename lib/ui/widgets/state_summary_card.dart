@@ -26,14 +26,15 @@ class StateSummaryCard extends StatelessWidget {
         margin: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 24,
-              color: cardColor.withOpacity(0.1),
-              offset: Offset(4, 8),
-            ),
-          ],
-          borderRadius: BorderRadius.circular(16.0),
+         boxShadow: [
+          BoxShadow(
+              color: Colors.black,
+              offset: Offset(0, 0),
+              blurRadius: 18,
+              spreadRadius: -10
+              ),
+        ],
+          borderRadius: BorderRadius.circular(25),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(),

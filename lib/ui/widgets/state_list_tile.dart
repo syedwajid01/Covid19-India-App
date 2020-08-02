@@ -195,14 +195,14 @@ class StateListTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(25),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black,
-              offset: Offset(0, 0),
-              blurRadius: 18,
-              spreadRadius: -10
-              ),
-        ],
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black,
+                offset: Offset(0, 0),
+                blurRadius: 18,
+                spreadRadius: -10
+                ),
+          ],
       ),
     );
   }

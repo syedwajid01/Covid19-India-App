@@ -1,4 +1,4 @@
-# covid19_india_app
+# Covid19 DashBoard
 
 A new Flutter project.
 
