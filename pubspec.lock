@@ -29,13 +29,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  bezier_chart:
-    dependency: "direct main"
-    description:
-      name: bezier_chart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.17+1"
   bloc:
     dependency: transitive
     description:
@@ -125,13 +118,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.1"
-  flutter_circular_chart:
-    dependency: "direct main"
-    description:
-      name: flutter_circular_chart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -254,13 +240,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.4"
-  pull_to_refresh:
-    dependency: "direct main"
-    description:
-      name: pull_to_refresh
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.6.1"
   quiver:
     dependency: transitive
     description:

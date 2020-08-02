@@ -21,9 +21,6 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  flutter_circular_chart:
-  bezier_chart:
-  pull_to_refresh:
   flare_loading: ^2.1.1
   syncfusion_flutter_charts: ^18.2.47
   http: ^0.12.2

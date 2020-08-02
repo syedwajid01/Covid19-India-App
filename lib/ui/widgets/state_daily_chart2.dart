@@ -21,6 +21,7 @@ class StateDailyChart2 extends StatelessWidget {
           enablePinching: true,
         ),
         title: ChartTitle(text: "Daily Confirmed Cases"),
+        tooltipBehavior: TooltipBehavior(enable: true,),
         series: <ChartSeries<MyStateSingleValue, String>>[
           ColumnSeries<MyStateSingleValue, String>(
             dataSource:

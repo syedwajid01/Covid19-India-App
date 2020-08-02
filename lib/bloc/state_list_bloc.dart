@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
-import 'package:covid19_india_app/data/models/my_state_daily_data.dart';
 import 'package:covid19_india_app/data/models/my_state_data.dart';
 import 'package:covid19_india_app/data/repos/stateDataRepo.dart';
 import 'package:covid19_india_app/misc/permission_handler.dart';

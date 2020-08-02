@@ -22,7 +22,7 @@ class StateCircularChart extends StatelessWidget {
       ChartData("Deaths", myStateData.deaths, Colors.redAccent),
     ];
     return Container(
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.4,
       child: SfCircularChart(
         legend: Legend(isVisible: true),
         title: ChartTitle(

@@ -12,7 +12,7 @@ class StateListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20),
-      margin: EdgeInsets.symmetric(vertical: 8,horizontal: 8),
+      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       child: Center(
         child: Padding(
           padding: EdgeInsets.only(bottom: 10),
@@ -29,164 +29,29 @@ class StateListTile extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Active",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontFamily: "Rubik",
-                      color: Colors.deepPurple.shade700,
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        stateData.todayActive.toString(),
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Rubik",
-                          fontSize: 18,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_upward,
-                        size: 17,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        stateData.active.toString().padLeft(7),
-                        style: TextStyle(
-                          fontFamily: "monospace",
-                          fontSize: 18,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+              stateTileRow(
+                title: "Active",
+                todayCases: stateData.todayActive.toString(),
+                totalCases: stateData.active.toString(),
+                color: Colors.grey,
               ),
-              SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Confirmed",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontFamily: "Rubik",
-                      color: Colors.deepPurple.shade700,
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        stateData.todayConfirmed.toString(),
-                        style: TextStyle(
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Rubik",
-                          fontSize: 18,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_upward,
-                        size: 17,
-                        color: Colors.blueGrey,
-                      ),
-                      Text(
-                        stateData.confirmed.toString().padLeft(7),
-                        style: TextStyle(
-                          fontFamily: "monospace",
-                          fontSize: 18,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+              stateTileRow(
+                title: "Confirmed",
+                todayCases: stateData.todayConfirmed.toString(),
+                totalCases: stateData.confirmed.toString(),
+                color:Colors.blueGrey,
               ),
-              SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Recovered",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontFamily: "Rubik",
-                      color: Colors.deepPurple.shade700,
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        stateData.todayRecovered.toString(),
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Rubik",
-                          fontSize: 18,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_upward,
-                        size: 17,
-                        color: Colors.green,
-                      ),
-                      Text(
-                        stateData.recovered.toString().padLeft(7),
-                        style: TextStyle(
-                          fontFamily: "monospace",
-                          fontSize: 18,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+              stateTileRow(
+                title: "Recovered",
+                todayCases: stateData.todayRecovered.toString(),
+                totalCases: stateData.recovered.toString(),
+                color: Colors.green,
               ),
-              SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Deceased",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontFamily: "Rubik",
-                      color: Colors.deepPurple.shade700,
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        stateData.todayDeaths.toString(),
-                        style: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Rubik",
-                          fontSize: 18,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_upward,
-                        size: 17,
-                        color: Colors.redAccent,
-                      ),
-                      Text(
-                        stateData.deaths.toString().padLeft(7),
-                        style: TextStyle(
-                          fontFamily: "monospace",
-                          fontSize: 18,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+              stateTileRow(
+                title: "Deceased",
+                todayCases: stateData.todayDeaths.toString(),
+                totalCases: stateData.deaths.toString(),
+                color: Colors.redAccent,
               ),
             ],
           ),
@@ -195,15 +60,66 @@ class StateListTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(25),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black,
-                offset: Offset(0, 0),
-                blurRadius: 18,
-                spreadRadius: -10
-                ),
-          ],
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black,
+              offset: Offset(0, 0),
+              blurRadius: 18,
+              spreadRadius: -10),
+        ],
       ),
+    );
+  }
+
+  Widget stateTileRow({
+    String title,
+    String todayCases,
+    String totalCases,
+    Color color,
+  }) {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 17,
+                fontFamily: "Rubik",
+                color: Colors.deepPurple.shade700,
+              ),
+            ),
+            Row(
+              children: <Widget>[
+                Text(
+                  todayCases,
+                  style: TextStyle(
+                    color: color,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "Rubik",
+                    fontSize: 18,
+                  ),
+                ),
+                Icon(
+                  Icons.arrow_upward,
+                  size: 17,
+                  color: color,
+                ),
+                Text(
+                  totalCases.padLeft(7),
+                  style: TextStyle(
+                    fontFamily: "monospace",
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+        SizedBox(height: 5),
+      ],
     );
   }
 }

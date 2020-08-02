@@ -6,7 +6,6 @@ import 'package:covid19_india_app/ui/widgets/no_data.dart';
 import 'package:covid19_india_app/ui/widgets/stateListView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -16,7 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider<StateListBloc>(

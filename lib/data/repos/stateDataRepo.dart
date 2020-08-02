@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 abstract class StateDataRepo {
   Future<List<MyStateData>> fetchStateDataList();
   Future<Map<String, List<MyStateSingleValue>>> fetchStatePatientDailyData(String stateCode);
-  Future<List<MyStateData>> fetchDistrictWiseData(String stateCode);
 }
 
 class CovidStateDataRepo extends StateDataRepo {
@@ -129,25 +128,6 @@ class CovidStateDataRepo extends StateDataRepo {
       print("Status Code is not Okay.");
       throw Error();
     }
-
     return statePatientDataMap;
-  }
-
-  @override
-  Future<List<MyStateData>> fetchDistrictWiseData(String stateCode) async {
-    List<MyStateData> districtWiseData = List();
-    String districtWiseUrl = "https://api.covid19india.org/v2/state_district_wise.json";
-    var districtWiseRes = await http.get(Uri.encodeFull(districtWiseUrl), headers: {
-      "Accept": "appplication/json",
-    });
-
-    if (districtWiseRes.statusCode == 200) {
-      var jsonData = json.decode(districtWiseRes.body) as List;
-      var stateData = jsonData.firstWhere((item) => item["statecode"] == stateCode.toUpperCase() || item["statecode"] == stateCode.toLowerCase());
-      var districtData = stateData["districtData"] as List;
-      districtWiseData = districtData.map<MyStateData>((json) => MyStateData.fromDistrictJson(json)).toList();
-    } 
-    print("District Data Is: ${districtWiseData.toString()}");
-    return districtWiseData;
   }
 }
