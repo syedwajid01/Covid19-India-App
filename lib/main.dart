@@ -1,4 +1,4 @@
-import 'package:covid19_india_app/ui/splash_screen.dart';
+import 'package:covid19_india_app/ui/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main(){

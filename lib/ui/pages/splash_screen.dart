@@ -1,4 +1,4 @@
-import 'package:covid19_india_app/ui/home_screen.dart';
+import 'package:covid19_india_app/ui/pages/home_page.dart';
 import 'package:flare_loading/flare_loading.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
         onSuccess: (data) async {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(
-              builder: (context) => HomeScreen(),
+              builder: (context) => HomePage(),
             ),
           );
         },
