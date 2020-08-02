@@ -22,16 +22,15 @@ environment:
 
 dependencies:
   flutter_circular_chart:
-  flare_loading:
-  cached_network_image:
   bezier_chart:
-  syncfusion_flutter_charts:
   pull_to_refresh:
-  http:
-  lite_rolling_switch:
+  flare_loading: ^2.1.1
+  syncfusion_flutter_charts: ^18.2.47
+  http: ^0.12.2
   flutter_bloc: ^6.0.1
   equatable: ^1.2.3
   permission_handler: ^5.0.1+1
+  auto_size_text: ^2.1.0
 
   flutter:
     sdk: flutter
@@ -76,7 +75,6 @@ flutter:
         - asset: fonts/Rubik-Bold.ttf
         - asset: fonts/Rubik-Black.ttf
         - asset: fonts/Rubik-Medium.ttf
-
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

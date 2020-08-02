@@ -16,7 +16,8 @@ class StateDetailLoading extends StateDetailState {
 }
 
 class StateDetailLoaded extends StateDetailState {
-  const StateDetailLoaded();
+  final Map<String, List<MyStateSingleValue>> patientDataMap;
+  const StateDetailLoaded({this.patientDataMap});
   @override
   List<Object> get props => [];
 }

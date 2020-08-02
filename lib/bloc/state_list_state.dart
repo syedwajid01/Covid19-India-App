@@ -19,7 +19,7 @@ class StateListLoaded extends StateListState {
   final List<MyStateData> stateListData;
   const StateListLoaded({this.stateListData});
   @override
-  List<Object> get props => [];
+  List<Object> get props => [stateListData];
 }
 
 class StateListError extends StateListState {

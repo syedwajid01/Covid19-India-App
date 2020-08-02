@@ -15,7 +15,7 @@ class StateListTile extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 8,horizontal: 8),
       child: Center(
         child: Padding(
-          padding: EdgeInsets.only(bottom: 25),
+          padding: EdgeInsets.only(bottom: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

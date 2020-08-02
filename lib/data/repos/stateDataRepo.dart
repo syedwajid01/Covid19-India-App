@@ -34,19 +34,20 @@ class CovidStateDataRepo extends StateDataRepo {
   @override
   Future<Map<String, List<MyStateSingleValue>>> fetchStatePatientDailyData(String stateCode) async {
     Map<String, List<MyStateSingleValue>> statePatientDataMap = Map();
-    List<MyStateData> statePatientDataList = List();
     String stateDailyDataUrl = "https://api.covid19india.org/states_daily.json";
     var stateDailyRes = await http.get(Uri.encodeFull(stateDailyDataUrl), headers: {
       "Accept": "appplication/json",
     });
-
+   
     if (stateDailyRes.statusCode == 200) {
       var jsonData = json.decode(stateDailyRes.body);
       var dailyStateData = jsonData["states_daily"] as List;
       var confirmedDailyData = dailyStateData.where((item) => item["status"] == "Confirmed").toList();
       var recoveredDailyData = dailyStateData.where((item) => item["status"] == "Recovered").toList();
       var deathsDailyData = dailyStateData.where((item) => item["status"] == "Deceased").toList();
+      //we are calculating daily data and cumulative data of the given state code
 
+      //daily confirmed state data list
       var cnfStateDataList = confirmedDailyData.map((item) {
         String date = item["date"];
         List<String> dateStringList = date.split("-");
@@ -59,6 +60,8 @@ class CovidStateDataRepo extends StateDataRepo {
           dateString: date,
         );
       }).toList();
+
+      //daily recovered data list
       var rcvrdStateDataList = recoveredDailyData.map((item) {
         String date = item["date"];
         List<String> dateStringList = date.split("-");
@@ -71,6 +74,8 @@ class CovidStateDataRepo extends StateDataRepo {
           dateString: date,
         );
       }).toList();
+ 
+      //daily deaths list
       var deathsStateDataList = deathsDailyData.map((item) {
         String date = item["date"];
         List<String> dateStringList = date.split("-");
@@ -83,6 +88,8 @@ class CovidStateDataRepo extends StateDataRepo {
           dateString: date,
         );
       }).toList();
+
+      //cumulative data lists
       List<MyStateSingleValue> activeStateDataList = List();
       List<MyStateSingleValue> cnfStateCumulativeDataList = List();
       List<MyStateSingleValue> rcvrdStateCumulativeDataList = List();
@@ -140,7 +147,6 @@ class CovidStateDataRepo extends StateDataRepo {
       var districtData = stateData["districtData"] as List;
       districtWiseData = districtData.map<MyStateData>((json) => MyStateData.fromDistrictJson(json)).toList();
     } 
-
     print("District Data Is: ${districtWiseData.toString()}");
     return districtWiseData;
   }

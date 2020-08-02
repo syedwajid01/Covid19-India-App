@@ -32,5 +32,4 @@ class MyStateDailyData {
 factory MyStateDailyData.fromJson(Map<String, dynamic> json) {
   return null;
 }
-
 }
