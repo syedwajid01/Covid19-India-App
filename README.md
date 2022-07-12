@@ -1,3 +1,6 @@
+<img src="https://github.com/syedwajid01/Covid19-India-App/blob/master/assets/covid_19_app.gif" width="300" height="500"/>
+<!-- ![Covid-19 App]() -->
+
 # Covid19 DashBoard
 
 A new Flutter project.
